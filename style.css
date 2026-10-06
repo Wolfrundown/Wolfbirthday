@@ -1,0 +1,101 @@
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  min-height:100vh;
+  font-family:Georgia,"Times New Roman",serif;
+  background:#100b16;
+  color:#fff;
+}
+main{max-width:760px;margin:auto}
+.hero{
+  min-height:100vh;
+  padding:80px 24px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  background:
+    radial-gradient(circle at 20% 20%,#56314f 0,transparent 28%),
+    radial-gradient(circle at 80% 70%,#352b5b 0,transparent 30%),
+    linear-gradient(145deg,#100b16,#211326 55%,#120d1c);
+}
+.stars{font-size:24px;letter-spacing:5px;opacity:.8;animation:float 4s ease-in-out infinite}
+.eyebrow{
+  margin-top:30px;
+  text-transform:uppercase;
+  letter-spacing:4px;
+  font:600 12px Arial,sans-serif;
+  color:#d9b5d3;
+}
+h1{
+  font-size:clamp(42px,11vw,76px);
+  line-height:.98;
+  margin:20px 0;
+  letter-spacing:-3px;
+}
+h1 span{color:#f0c8df}
+.intro{
+  max-width:450px;
+  line-height:1.7;
+  color:#d8ccd8;
+  font-size:17px;
+}
+button{
+  margin-top:25px;
+  border:0;
+  border-radius:999px;
+  padding:15px 25px;
+  min-height:50px;
+  font-weight:700;
+  font-size:15px;
+  cursor:pointer;
+  background:#fff;
+  color:#201322;
+  transition:.25s;
+}
+button:active{transform:scale(.96)}
+.surprise{
+  padding:70px 24px 90px;
+  text-align:center;
+  background:#fdf8fb;
+  color:#332433;
+  min-height:100vh;
+}
+.hidden{display:none}
+.cake{font-size:58px}
+.surprise h2{font-size:38px;margin:15px 0}
+.surprise>p{max-width:600px;margin:0 auto;line-height:1.8;color:#665667}
+.cards{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+  margin:35px 0;
+}
+.card{
+  padding:25px 12px;
+  border-radius:20px;
+  background:#f4e8f0;
+  line-height:2;
+}
+.card strong{font:600 13px Arial,sans-serif}
+.secondary{background:#2b1c2c;color:#fff}
+.final{
+  margin:30px auto 0;
+  max-width:500px;
+  padding:30px;
+  border-radius:24px;
+  background:#fff;
+  border:1px solid #ead9e4;
+  animation:rise .6s ease;
+}
+.heart{font-size:48px}
+.final h3{font-size:28px;margin:10px}
+.final p{line-height:1.7;color:#665667}
+@keyframes float{50%{transform:translateY(-10px) rotate(3deg)}}
+@keyframes rise{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:none}}
+@media(max-width:520px){
+  .cards{grid-template-columns:1fr}
+  .card{padding:18px}
+}
