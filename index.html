@@ -7,11 +7,12 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@500;600;700&family=Sacramento&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css?v=3">
 </head>
 <body class="locked">
 <audio id="song" preload="auto" loop><source src="music/birthday-song.mp3" type="audio/mpeg"></audio>
 <button class="music-toggle" id="musicToggle" type="button">♫ <span>Music</span></button>
+<div class="petals" id="petals"></div>
 
 <div class="login-screen" id="loginScreen">
   <div class="login-card">
@@ -32,7 +33,8 @@
 
 <main id="siteContent">
 <section class="cake page" id="cakePage">
-  <div class="cake-card">
+  <div class="glow-orb orb-a"></div><div class="glow-orb orb-b"></div>
+  <div class="cake-card reveal-card">
     <div class="script">happy birthday, Dheposh</div>
     <h2 id="cakeTitle">Make a wish.</h2>
     <p id="cakeInstruction">Click each candle to blow it out ✨</p>
@@ -42,47 +44,64 @@
       <div class="icing">♡</div><div class="cake-top"></div><div class="cake-body"></div><div class="plate"></div>
       <div class="knife" id="knife">🔪</div>
     </div>
-    <button class="primary" id="cakeAction" type="button">Blow out the candles ✨</button>
+    <button class="primary pulse-button" id="cakeAction" type="button">Blow out the candles ✨</button>
     <div class="wish-result" id="wishResult"><strong>Now cut the cake! 🎂</strong><p>Click the cake once.</p></div>
+    <button class="next-button hidden" id="cakeNext" type="button">Open your memories <span>→</span></button>
   </div>
 </section>
 
-<section class="intro page photo-page" id="memories">
-  <div class="section-copy">
-    <div class="script">a little dheposh archive</div>
-    <h2>A few of my<br>favourite views of you.</h2>
-    <p>Exact photos. No filters. Just little moments worth keeping. ♡</p>
+<section class="memory-page page" id="memory1">
+  <div class="page-number">01 / 03</div>
+  <div class="memory-copy">
+    <div class="script">first little memory</div>
+    <h2>A beautiful view.</h2>
+    <p>Some pictures don't need a caption. ♡</p>
   </div>
-  <div class="floating-gallery gallery-solo">
-    <figure class="photo p1"><img src="images/memory-01.jpg" alt="Dheposh"><span>🌿</span></figure>
-    <figure class="photo p2"><img src="images/memory-02.jpg" alt="Dheposh"><span>✨</span></figure>
-    <figure class="photo p3"><img src="images/memory-03.jpg" alt="Dheposh"><span>♡</span></figure>
-    <figure class="photo p4"><img src="images/memory-04.jpg" alt="Dheposh"><span>☕</span></figure>
-    <figure class="photo p5"><img src="images/memory-05.jpg" alt="Dheposh"><span>🌙</span></figure>
-    <figure class="photo p6"><img src="images/memory-06.jpg" alt="Dheposh"><span>🌸</span></figure>
-    <figure class="photo p7"><img src="images/memory-07.jpg" alt="Dheposh"><span>💫</span></figure>
-    <figure class="photo p8"><img src="images/memory-08.jpg" alt="Dheposh"><span>🍃</span></figure>
-    <figure class="photo p9"><img src="images/memory-09.jpg" alt="Dheposh"><span>🎀</span></figure>
-    <figure class="photo p10"><img src="images/memory-10.jpg" alt="Dheposh"><span>♡</span></figure>
+  <div class="single-photo-frame photo-enter">
+    <div class="tape tape-left"></div><div class="tape tape-right"></div>
+    <figure class="photo single-photo"><img src="images/memory-01.jpg" alt="Dheposh memory 1"><span>♡</span></figure>
   </div>
-  <div class="tap-note">tap any photo to see it properly ↗</div>
+  <button class="next-button" id="nextMemory1" type="button">Next memory <span>→</span></button>
 </section>
 
-<section class="intro page photo-page second-photos" id="moreMemories">
-  <div class="section-copy">
-    <div class="script">and then there were these</div>
-    <h2>More little memories.</h2>
-    <p>Because some moments are better kept exactly as they happened.</p>
+<section class="memory-page page" id="memory2">
+  <div class="page-number">02 / 03</div>
+  <div class="memory-copy">
+    <div class="script">one more</div>
+    <h2>And another one.</h2>
+    <p>Because one picture was definitely not enough. ✨</p>
   </div>
-  <div class="floating-gallery gallery-more">
-    <figure class="photo p1"><img src="images/memory-11.jpg" alt="Dheposh"><span>🌸</span></figure>
-    <figure class="photo p2"><img src="images/memory-12.jpg" alt="Dheposh"><span>♡</span></figure>
+  <div class="single-photo-frame photo-enter alternate">
+    <div class="tape tape-left"></div><div class="tape tape-right"></div>
+    <figure class="photo single-photo"><img src="images/memory-02.jpg" alt="Dheposh memory 2"><span>🌸</span></figure>
   </div>
-  <div class="tap-note">keep scrolling ♡</div>
+  <button class="next-button" id="nextMemory2" type="button">See them together <span>→</span></button>
+</section>
+
+<section class="memory-page double-page page" id="memory3">
+  <div class="page-number">03 / 03</div>
+  <div class="memory-copy">
+    <div class="script">the little archive</div>
+    <h2>The rest of the memories.</h2>
+    <p>Ten little moments, together on one page. Tap any photo to make it bigger. ♡</p>
+  </div>
+  <div class="double-gallery">
+    <figure class="photo"><img src="images/memory-03.jpg" alt="Dheposh memory 3"><span>✦</span></figure>
+    <figure class="photo"><img src="images/memory-04.jpg" alt="Dheposh memory 4"><span>♡</span></figure>
+    <figure class="photo"><img src="images/memory-05.jpg" alt="Dheposh memory 5"><span>🌙</span></figure>
+    <figure class="photo"><img src="images/memory-06.jpg" alt="Dheposh memory 6"><span>🌸</span></figure>
+    <figure class="photo"><img src="images/memory-07.jpg" alt="Dheposh memory 7"><span>✨</span></figure>
+    <figure class="photo"><img src="images/memory-08.jpg" alt="Dheposh memory 8"><span>🍃</span></figure>
+    <figure class="photo"><img src="images/memory-09.jpg" alt="Dheposh memory 9"><span>🎀</span></figure>
+    <figure class="photo"><img src="images/memory-10.jpg" alt="Dheposh memory 10"><span>♡</span></figure>
+    <figure class="photo"><img src="images/memory-11.jpg" alt="Dheposh memory 11"><span>🌷</span></figure>
+    <figure class="photo"><img src="images/memory-12.jpg" alt="Dheposh memory 12"><span>💫</span></figure>
+  </div>
+  <button class="next-button" id="nextFinal" type="button">One last thing <span>→</span></button>
 </section>
 
 <section class="final page" id="final">
-  <div class="envelope-wrap">
+  <div class="envelope-wrap reveal-card">
     <div class="script">one last thing</div>
     <h2>For you, Dheposh.</h2>
     <p class="sub">Tap the envelope.</p>
@@ -103,6 +122,6 @@
 </main>
 
 <div class="lightbox" id="lightbox"><button class="close" id="closeLightbox" type="button">×</button><img id="lightboxImg" src="" alt=""><div id="lightboxCaption"></div></div>
-<script src="script.js"></script>
+<script src="script.js?v=3"></script>
 </body>
 </html>
