@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@500;600;700&family=Sacramento&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=6">
+<link rel="stylesheet" href="style.css?v=8">
 </head>
 <body class="locked">
 <audio id="song" preload="auto" loop><source src="music/birthday-song.mp3" type="audio/mpeg"></audio>
@@ -39,7 +39,7 @@
     <div class="script">happy birthday, Dheposh</div>
     <h2 id="cakeTitle">Make a wish.</h2>
     <p id="cakeInstruction">Click each candle to blow it out ✨</p>
-    <div class="cake-scene" id="cakeScene" aria-label="Birthday cake">
+    <img class="character stitch-character" src="images/stitch.png" alt="Stitch" aria-hidden="true"><div class="cake-scene" id="cakeScene" aria-label="Birthday cake">
       <div class="sparkle-ring">✦　✿　✦　✿　✦</div><div class="cake-lights" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
       <div class="flame f1" data-candle="1"></div><div class="flame f2" data-candle="2"></div><div class="flame f3" data-candle="3"></div>
       <div class="candle c1" data-candle="1"></div><div class="candle c2" data-candle="2"></div><div class="candle c3" data-candle="3"></div>
@@ -91,15 +91,29 @@
   <button class="next-button" id="nextFinal" type="button">One last thing <span>→</span></button>
 </section>
 
+<!-- QUIET PAUSE PAGE -->
+<section class="pause-page page" id="pausePage">
+  <img class="character angel-character" src="images/angel.png" alt="Angel" aria-hidden="true">
+  <div class="pause-petals" aria-hidden="true"><i>✿</i><i>❀</i><i>✿</i><i>❀</i><i>✿</i></div>
+  <div class="pause-card reveal-card">
+    <div class="script">just a little pause</div>
+    <div class="lily-bloom" aria-hidden="true"><span class="lily-center">✦</span><span class="petal p1"></span><span class="petal p2"></span><span class="petal p3"></span><span class="petal p4"></span><span class="petal p5"></span><span class="petal p6"></span></div>
+    <h2>Before the last page…</h2>
+    <p>Take a tiny second here. The noisy part is over.</p>
+    <p class="pause-small">There is just one thing I wanted to tell you.</p>
+    <button class="next-button" id="nextPause" type="button">Read it <span>→</span></button>
+  </div>
+</section>
+
 <!-- FINAL PAGE -->
 <section class="final page" id="final">
   <div class="envelope-wrap reveal-card"><div class="script">one last thing</div><h2>For you, Dheposh.</h2><p class="sub">Tap the envelope.</p>
     <button class="envelope" id="envelopeBtn" aria-label="Open the birthday message" type="button"><span class="seal">✿</span><span class="env-flap"></span><span class="env-paper"><strong>Happy Birthday</strong><small>to my favourite Dheposh</small></span></button>
-    <div class="letter" id="letter"><div class="script">dear Dheposh,</div><p>Keep fighting and shining like you always do.</p><p>I will appreciate you and always be a part of you, even if I am not around you. You know that.</p><p>It's your birthday, and God gave the world a precious soul.</p><p class="signature">— Happy Birthday, Dheposh ✿</p></div>
+    <div class="letter" id="letter"><div class="script">dear Dheposh,</div><p>Keep fighting and shining like you always do.</p><p>I hope you know that I genuinely appreciate you. And even when I'm not around, don't ever think that means I stopped caring. A part of me will always be there, somewhere.</p><p>It's your birthday, and I just want you to know that the world became a little more beautiful the day it got you.</p><p>So here's to you — keep going, keep smiling, and never stop being you.</p><p class="signature">— Happy Birthday, Dheposh ✿</p></div>
   </div>
 </section>
 <footer><div>Made with memories, music & a suspicious amount of code.</div><button id="replay" type="button">↻ Replay from the beginning</button></footer>
 </main>
 <div class="lightbox" id="lightbox"><button class="close" id="closeLightbox" type="button">×</button><img id="lightboxImg" src="" alt=""><div id="lightboxCaption"></div></div>
-<script src="script.js?v=6"></script>
+<script src="script.js?v=8"></script>
 </body></html>

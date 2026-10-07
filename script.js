@@ -4,14 +4,14 @@ const cakeAction=$('cakeAction'),cakeScene=$('cakeScene'),cakeTitle=$('cakeTitle
 const envelopeBtn=$('envelopeBtn'),letter=$('letter'),replay=$('replay');
 const lightbox=$('lightbox'),lightboxImg=$('lightboxImg'),lightboxCaption=$('lightboxCaption'),closeLightbox=$('closeLightbox');
 let candlesOut=0,cakeCut=false,unlocked=false,currentPage='cakePage';
-const pages=['cakePage','memory1','memory2','memory3','memory4','memory5','memory6','final'];
+const pages=['cakePage','memory1','memory2','memory3','memory4','memory5','memory6','pausePage','final'];
 
 function createLoginDucks(){
   if(!duckLayer || duckLayer.children.length) return;
   const positions=[
-    [2,7,0.15,-8],[18,20,0.10,6],[34,5,0.14,-4],[51,16,0.12,7],[69,6,0.16,-6],[87,18,0.11,5],
-    [5,72,0.12,5],[21,87,0.15,-7],[43,74,0.11,4],[62,88,0.16,-5],[80,72,0.13,6],[93,88,0.10,-4],
-    [3,44,0.09,3],[91,45,0.13,-5],[14,55,0.08,7],[84,57,0.09,-6]
+    [2,7,0.27,-8],[18,20,0.23,6],[34,5,0.25,-4],[51,16,0.24,7],[69,6,0.28,-6],[87,18,0.24,5],
+    [5,72,0.23,5],[21,87,0.27,-7],[43,74,0.23,4],[62,88,0.28,-5],[80,72,0.25,6],[93,88,0.23,-4],
+    [3,44,0.21,3],[91,45,0.25,-5],[14,55,0.20,7],[84,57,0.22,-6]
   ];
   positions.forEach(([x,y,scale,rot],i)=>{
     const d=document.createElement('img');
@@ -38,7 +38,7 @@ document.querySelectorAll('.candle,.flame').forEach(el=>el.addEventListener('cli
 cakeAction.addEventListener('click',()=>{if(candlesOut<3)blowCandle(candlesOut+1);});
 cakeScene.addEventListener('click',()=>{if(candlesOut===3&&!cakeCut){cakeCut=true;cakeScene.classList.add('cake-cut');cakeScene.classList.remove('cut-ready');cakeTitle.textContent='Cake cut! 🎂';cakeInstruction.textContent='A little celebration before the memories…';wishResult.classList.add('show');wishResult.innerHTML='<strong>Party time! 🎊</strong><p>Now press the button when you are ready.</p>';playCannonCelebration();burstParty();cakeNext.classList.remove('hidden');cakeNext.classList.add('show-next');}});
 cakeNext.addEventListener('click',()=>showPage('memory1'));
-$('nextMemory1').addEventListener('click',()=>showPage('memory2'));$('nextMemory2').addEventListener('click',()=>showPage('memory3'));$('nextMemory3').addEventListener('click',()=>showPage('memory4'));$('nextMemory4').addEventListener('click',()=>showPage('memory5'));$('nextMemory5').addEventListener('click',()=>showPage('memory6'));$('nextFinal').addEventListener('click',()=>showPage('final'));
+$('nextMemory1').addEventListener('click',()=>showPage('memory2'));$('nextMemory2').addEventListener('click',()=>showPage('memory3'));$('nextMemory3').addEventListener('click',()=>showPage('memory4'));$('nextMemory4').addEventListener('click',()=>showPage('memory5'));$('nextMemory5').addEventListener('click',()=>showPage('memory6'));$('nextFinal').addEventListener('click',()=>showPage('pausePage'));$('nextPause').addEventListener('click',()=>showPage('final'));
 function playCannonCelebration(){
   // The cake click is a user gesture, so a short Web Audio celebration can play without an external sound file.
   try{

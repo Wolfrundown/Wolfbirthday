@@ -60,3 +60,35 @@
 @keyframes popperFire{0%{opacity:0;transform:scale(.35) rotate(var(--rot,0deg))}25%{opacity:1;transform:scale(1.15) rotate(var(--rot,0deg))}55%{transform:scale(.98) rotate(var(--rot,0deg))}100%{opacity:0;transform:scale(.9) rotate(var(--rot,0deg))}}
 @keyframes sideBurst{0%{opacity:0;transform:translate(0,0) scale(.5) rotate(0)}10%{opacity:1}100%{opacity:0;transform:translate(var(--dx),var(--dy)) scale(.8) rotate(var(--rot))}}
 @media(max-width:700px){.login-duck-image{width:105px}.popper-cannon{bottom:20vh;transform:scale(.35)}.popper-cannon.left{left:2px}.popper-cannon.right{right:2px}.party-bit{font-size:16px}}
+
+/* V7 — bigger reference-style ducks + quiet lily pause */
+.login-duck-image{width:185px}
+.pause-page{background:radial-gradient(circle at 50% 45%,#fffdf8 0 14%,#fff4e9 42%,#f6dbe5 100%)}
+.pause-page:before{content:"";position:absolute;inset:8%;border:1px solid rgba(184,92,126,.12);border-radius:48% 52% 44% 56%;transform:rotate(3deg);pointer-events:none}
+.pause-card{position:relative;z-index:3;text-align:center;width:min(620px,92vw);padding:38px 28px 34px;border-radius:34px;background:rgba(255,251,246,.82);box-shadow:0 30px 90px rgba(111,53,76,.15),0 0 80px rgba(255,226,166,.28);backdrop-filter:blur(8px)}
+.pause-card h2{font-size:clamp(30px,5vw,48px);margin:12px 0 8px;color:#6a3450}
+.pause-card p{max-width:480px;margin:7px auto;color:#79566a;font-size:15px;line-height:1.65}
+.pause-small{font-size:13px!important;opacity:.75}
+.pause-card .next-button{margin-top:22px}
+.pause-petals{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.pause-petals i{position:absolute;color:#d8849d;font-style:normal;opacity:.35;font-size:24px;animation:pauseFloat 7s ease-in-out infinite}
+.pause-petals i:nth-child(1){left:13%;top:20%;animation-delay:-1s}.pause-petals i:nth-child(2){left:78%;top:18%;animation-delay:-3s}.pause-petals i:nth-child(3){left:20%;top:76%;animation-delay:-4s}.pause-petals i:nth-child(4){left:84%;top:72%;animation-delay:-2s}.pause-petals i:nth-child(5){left:49%;top:8%;animation-delay:-5s}
+.lily-bloom{position:relative;width:150px;height:150px;margin:0 auto 8px;animation:lilyBreath 4s ease-in-out infinite}
+.lily-bloom .petal{position:absolute;left:50%;top:50%;width:50px;height:78px;border-radius:65% 35% 65% 35%;background:linear-gradient(145deg,#fffdf9,#f7cbd8);box-shadow:0 8px 18px rgba(165,78,112,.12);transform-origin:50% 88%;border:1px solid #efc0cf}
+.lily-bloom .p1{transform:translate(-50%,-88%) rotate(0deg)}.lily-bloom .p2{transform:translate(-50%,-88%) rotate(60deg)}.lily-bloom .p3{transform:translate(-50%,-88%) rotate(120deg)}.lily-bloom .p4{transform:translate(-50%,-88%) rotate(180deg)}.lily-bloom .p5{transform:translate(-50%,-88%) rotate(240deg)}.lily-bloom .p6{transform:translate(-50%,-88%) rotate(300deg)}
+.lily-center{position:absolute;z-index:3;left:50%;top:50%;transform:translate(-50%,-50%);width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:#e9ad55;color:#fff9d7;box-shadow:0 0 25px #f2cb7d88;font-size:17px;animation:centerGlow 2.2s ease-in-out infinite}
+@keyframes lilyBreath{0%,100%{transform:scale(.96) rotate(-2deg)}50%{transform:scale(1.04) rotate(2deg)}}
+@keyframes centerGlow{50%{box-shadow:0 0 38px #f2cb7daa;transform:translate(-50%,-50%) scale(1.08)}}
+@keyframes pauseFloat{0%,100%{transform:translateY(0) rotate(-8deg)}50%{transform:translateY(-22px) rotate(10deg)}}
+@media(max-width:700px){.login-duck-image{width:145px}.pause-card{padding:30px 20px}.lily-bloom{width:125px;height:125px}.lily-bloom .petal{width:42px;height:65px}}
+
+
+/* Character friends — added for the final personal touch */
+.character{position:absolute;z-index:6;pointer-events:none;user-select:none;filter:drop-shadow(0 18px 22px rgba(70,35,55,.16));}
+.stitch-character{width:clamp(135px,16vw,220px);left:clamp(12px,6vw,90px);bottom:clamp(30px,8vh,90px);animation:stitchBounce 4.8s ease-in-out infinite;transform-origin:50% 90%;}
+.angel-character{width:clamp(125px,15vw,205px);right:clamp(12px,7vw,100px);bottom:clamp(20px,8vh,90px);mix-blend-mode:multiply;opacity:.93;animation:angelFloat 5.8s ease-in-out infinite;transform-origin:50% 85%;}
+.pause-page{position:absolute;inset:0;min-height:100svh;padding:42px 20px;display:none;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;background:radial-gradient(circle at 25% 25%,#fff7ef 0 18%,transparent 42%),linear-gradient(145deg,#fff8f1,#f5d5df 60%,#fff0e7);}
+.pause-page.active{display:flex;animation:pageIn .8s cubic-bezier(.2,.8,.2,1) both;}
+@keyframes stitchBounce{0%,100%{transform:translateY(0) rotate(-2deg) scale(1)}25%{transform:translateY(-12px) rotate(2deg) scale(1.02)}50%{transform:translateY(0) rotate(-1deg) scale(1)}75%{transform:translateY(-7px) rotate(-3deg) scale(1.01)}}
+@keyframes angelFloat{0%,100%{transform:translateY(0) rotate(2deg)}30%{transform:translateY(-13px) rotate(-2deg)}65%{transform:translateY(-5px) rotate(3deg)}}
+@media(max-width:700px){.stitch-character{width:105px;left:8px;bottom:30px;opacity:.9}.angel-character{width:95px;right:8px;bottom:28px;opacity:.82}.cake-card{z-index:10}.pause-card{z-index:10}}
