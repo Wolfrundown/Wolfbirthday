@@ -3,7 +3,6 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#f8d8df">
 <title>Happy Birthday, Dheposh ♡</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,6 +10,9 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body class="locked">
+<audio id="song" preload="auto" loop><source src="music/birthday-song.mp3" type="audio/mpeg"></audio>
+<button class="music-toggle" id="musicToggle" type="button">♫ <span>Music</span></button>
+
 <div class="login-screen" id="loginScreen">
   <div class="login-card">
     <div class="login-flower">✿</div>
@@ -18,9 +20,9 @@
     <h1>For <em>Dheposh</em> ♡</h1>
     <p>Only the birthday girl gets to open this.</p>
     <form id="loginForm">
-      <label>Username</label>
+      <label for="username">Username</label>
       <input id="username" type="text" autocomplete="username" placeholder="Enter username" required>
-      <label>Password</label>
+      <label for="password">Password</label>
       <input id="password" type="password" autocomplete="current-password" placeholder="Enter password" required>
       <button class="primary" type="submit">Unlock your birthday ♡</button>
       <div class="login-error" id="loginError"></div>
@@ -28,54 +30,55 @@
   </div>
 </div>
 
-<div id="siteContent">
+<main id="siteContent">
 <section class="cake page" id="cakePage">
   <div class="cake-card">
     <div class="script">happy birthday, Dheposh</div>
     <h2 id="cakeTitle">Make a wish.</h2>
-    <p id="cakeInstruction">Click the candles to blow them out ✨</p>
-
-    <div class="cake-scene" id="cakeScene">
-      <div class="flame f1" data-candle="1"></div>
-      <div class="flame f2" data-candle="2"></div>
-      <div class="flame f3" data-candle="3"></div>
-      <div class="candle c1" data-candle="1"></div>
-      <div class="candle c2" data-candle="2"></div>
-      <div class="candle c3" data-candle="3"></div>
-      <div class="icing">♡</div>
-      <div class="cake-top"></div>
-      <div class="cake-body"></div>
-      <div class="plate"></div>
+    <p id="cakeInstruction">Click each candle to blow it out ✨</p>
+    <div class="cake-scene" id="cakeScene" aria-label="Birthday cake">
+      <div class="flame f1" data-candle="1"></div><div class="flame f2" data-candle="2"></div><div class="flame f3" data-candle="3"></div>
+      <div class="candle c1" data-candle="1"></div><div class="candle c2" data-candle="2"></div><div class="candle c3" data-candle="3"></div>
+      <div class="icing">♡</div><div class="cake-top"></div><div class="cake-body"></div><div class="plate"></div>
       <div class="knife" id="knife">🔪</div>
     </div>
-
-    <button class="primary" id="cakeAction">Blow out the candles ✨</button>
-    <div class="wish-result" id="wishResult">
-      <strong>Now cut the cake! 🎂</strong>
-      <p>Click the cake to make the first cut.</p>
-    </div>
+    <button class="primary" id="cakeAction" type="button">Blow out the candles ✨</button>
+    <div class="wish-result" id="wishResult"><strong>Now cut the cake! 🎂</strong><p>Click the cake once.</p></div>
   </div>
 </section>
 
-<section class="intro page" id="memories">
+<section class="intro page photo-page" id="memories">
   <div class="section-copy">
-    <div class="script">the dheposh archive</div>
+    <div class="script">a little dheposh archive</div>
     <h2>A few of my<br>favourite views of you.</h2>
-    <p>No perfect poses. No complicated explanation. Just you, being you.</p>
+    <p>Exact photos. No filters. Just little moments worth keeping. ♡</p>
   </div>
-
-  <div class="floating-gallery">
-    <figure class="photo p1"><img src="images/memory-01.jpg" alt="Dheposh outdoors"><span>🌿</span></figure>
+  <div class="floating-gallery gallery-solo">
+    <figure class="photo p1"><img src="images/memory-01.jpg" alt="Dheposh"><span>🌿</span></figure>
     <figure class="photo p2"><img src="images/memory-02.jpg" alt="Dheposh"><span>✨</span></figure>
-    <figure class="photo p3"><img src="images/memory-03.jpg" alt="Dheposh smiling"><span>♡</span></figure>
+    <figure class="photo p3"><img src="images/memory-03.jpg" alt="Dheposh"><span>♡</span></figure>
     <figure class="photo p4"><img src="images/memory-04.jpg" alt="Dheposh"><span>☕</span></figure>
     <figure class="photo p5"><img src="images/memory-05.jpg" alt="Dheposh"><span>🌙</span></figure>
     <figure class="photo p6"><img src="images/memory-06.jpg" alt="Dheposh"><span>🌸</span></figure>
     <figure class="photo p7"><img src="images/memory-07.jpg" alt="Dheposh"><span>💫</span></figure>
     <figure class="photo p8"><img src="images/memory-08.jpg" alt="Dheposh"><span>🍃</span></figure>
     <figure class="photo p9"><img src="images/memory-09.jpg" alt="Dheposh"><span>🎀</span></figure>
+    <figure class="photo p10"><img src="images/memory-10.jpg" alt="Dheposh"><span>♡</span></figure>
   </div>
-  <div class="tap-note">tap any photo ↗</div>
+  <div class="tap-note">tap any photo to see it properly ↗</div>
+</section>
+
+<section class="intro page photo-page second-photos" id="moreMemories">
+  <div class="section-copy">
+    <div class="script">and then there were these</div>
+    <h2>More little memories.</h2>
+    <p>Because some moments are better kept exactly as they happened.</p>
+  </div>
+  <div class="floating-gallery gallery-more">
+    <figure class="photo p1"><img src="images/memory-11.jpg" alt="Dheposh"><span>🌸</span></figure>
+    <figure class="photo p2"><img src="images/memory-12.jpg" alt="Dheposh"><span>♡</span></figure>
+  </div>
+  <div class="tap-note">keep scrolling ♡</div>
 </section>
 
 <section class="final page" id="final">
@@ -83,16 +86,10 @@
     <div class="script">one last thing</div>
     <h2>For you, Dheposh.</h2>
     <p class="sub">Tap the envelope.</p>
-
-    <button class="envelope" id="envelopeBtn" aria-label="Open the birthday message">
-      <span class="seal">♡</span>
-      <span class="env-flap"></span>
-      <span class="env-paper">
-        <strong>Happy Birthday</strong>
-        <small>to my favourite Dheposh</small>
-      </span>
+    <button class="envelope" id="envelopeBtn" aria-label="Open the birthday message" type="button">
+      <span class="seal">♡</span><span class="env-flap"></span>
+      <span class="env-paper"><strong>Happy Birthday</strong><small>to my favourite Dheposh</small></span>
     </button>
-
     <div class="letter" id="letter">
       <div class="script">dear Dheposh,</div>
       <p>Keep fighting and shining like you always do.</p>
@@ -102,16 +99,10 @@
     </div>
   </div>
 </section>
+<footer><div>Made with memories, music & a suspicious amount of code.</div><button id="replay" type="button">↻ Replay from the beginning</button></footer>
+</main>
 
-<footer>
-  <div>Made with memories, music & a suspicious amount of code.</div>
-  <button id="replay">↻ Replay from the beginning</button>
-</footer>
-</div>
-
-<div class="lightbox" id="lightbox">
-  <button class="close" id="closeLightbox">×</button>
-  <img id="lightboxImg" src="" alt="">
-  <div id="lightboxCaption"></div>
-</div></body>
+<div class="lightbox" id="lightbox"><button class="close" id="closeLightbox" type="button">×</button><img id="lightboxImg" src="" alt=""><div id="lightboxCaption"></div></div>
+<script src="script.js"></script>
+</body>
 </html>

@@ -35,7 +35,7 @@ h1,h2{font-family:"Playfair Display",serif;font-weight:600}
 .photo span{position:absolute;right:10px;bottom:5px;font-size:14px}
 .p1{left:6%;top:3%;transform:rotate(-7deg);animation-delay:-1s}.p2{left:39%;top:1%;transform:rotate(4deg);animation-delay:-3s}.p3{right:6%;top:8%;transform:rotate(8deg);animation-delay:-5s}
 .p4{left:16%;top:34%;transform:rotate(6deg);animation-delay:-2s}.p5{left:43%;top:31%;transform:rotate(-5deg);animation-delay:-4s}.p6{right:16%;top:38%;transform:rotate(-7deg);animation-delay:-1.5s}
-.p7{left:3%;top:66%;transform:rotate(8deg);animation-delay:-4.5s}.p8{left:38%;top:64%;transform:rotate(5deg);animation-delay:-2.5s}.p9{right:4%;top:67%;transform:rotate(-5deg);animation-delay:-3.5s}
+.p7{left:3%;top:66%;transform:rotate(8deg);animation-delay:-4.5s}.p8{left:38%;top:64%;transform:rotate(5deg);animation-delay:-2.5s}.p9{right:4%;top:67%;transform:rotate(-5deg);animation-delay:-3.5s}.p10{right:38%;top:85%;transform:rotate(5deg);animation-delay:-1.5s}
 .tap-note{font-size:11px;letter-spacing:2px;color:#a5798c}
 @keyframes float{0%,100%{translate:0 0}50%{translate:0 -12px}}
 .cake{background:linear-gradient(160deg,#f8dce5dd,#fff5ebee)}
@@ -50,7 +50,7 @@ h1,h2{font-family:"Playfair Display",serif;font-weight:600}
 .flame{position:absolute;bottom:197px;width:17px;height:25px;border-radius:50% 50% 45% 45%;background:#ffb52e;filter:drop-shadow(0 0 9px #ff9d28);z-index:6;animation:flicker .5s infinite alternate}
 .f1{left:90px}.f2{left:141px}.f3{left:192px}
 @keyframes flicker{to{transform:scale(.8) translateY(2px)}}
-.blown .flame{display:none}
+.flame.blown{display:none}
 .wish-result{display:none;margin-top:24px;padding:20px;border-radius:20px;background:#fff3f7}
 .wish-result.show{display:block;animation:pop .5s ease}
 .wish-result strong{font-family:"Playfair Display",serif;font-size:25px}
@@ -112,7 +112,7 @@ body.unlocked #siteContent{display:block}
 .login-error{height:20px;text-align:center;color:#b53f68;font-size:12px;margin-top:8px}
 #cakePage{min-height:100svh}
 #cakePage .cake-card{position:relative}
-.candle,.flame{cursor:pointer}
+.candle,.flame{cursor:pointer}.candle.blown-candle{opacity:.7}
 .knife{position:absolute;right:18px;bottom:48px;font-size:37px;opacity:0;transform:rotate(-25deg) translate(20px,20px);transition:.45s;z-index:8;cursor:pointer}
 .cut-ready .knife{opacity:1;transform:rotate(-25deg) translate(0,0)}
 .cake-cut .cake-body{clip-path:polygon(0 0,43% 0,43% 20%,58% 20%,58% 0,100% 0,100% 100%,0 100%)}
@@ -121,3 +121,5 @@ body.unlocked #siteContent{display:block}
 @keyframes popFloat{0%{transform:translate(0,0) rotate(0);opacity:1}70%{opacity:1}100%{transform:translate(var(--dx),-105vh) rotate(var(--rot));opacity:0}}
 .spark{position:fixed;z-index:79;pointer-events:none;font-size:20px;animation:sparkFly 1.8s ease-out forwards}
 @keyframes sparkFly{to{transform:translate(var(--dx),var(--dy)) rotate(420deg);opacity:0}}
+
+.second-photos{min-height:78svh}.gallery-more{height:500px;max-width:700px}.gallery-more .p1{left:18%;top:5%;}.gallery-more .p2{right:18%;top:12%;}.gallery-more .photo{width:260px}.gallery-more .photo img{height:330px}.second-photos{background:linear-gradient(180deg,#ffeaf0e8,#fff8f0ee)}
