@@ -1,45 +1,117 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>A Little Birthday Surprise</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#f8d8df">
+<title>Happy Birthday, Dheposh ♡</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@500;600;700&family=Sacramento&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
-<body>
-  <main>
-    <section class="hero">
-      <div class="stars">✦　✧　♡　✦</div>
-      <p class="eyebrow">A little surprise for you</p>
-      <h1>Happy Birthday<br><span>Beautiful Soul</span> ✨</h1>
-      <p class="intro">I made this little corner of the internet just for you.</p>
-      <button id="openBtn">Open Your Surprise 🎁</button>
-    </section>
+<body class="locked">
+<div class="login-screen" id="loginScreen">
+  <div class="login-card">
+    <div class="login-flower">✿</div>
+    <div class="mini">A LITTLE SURPRISE FOR YOU</div>
+    <h1>For <em>Dheposh</em> ♡</h1>
+    <p>Only the birthday girl gets to open this.</p>
+    <form id="loginForm">
+      <label>Username</label>
+      <input id="username" type="text" autocomplete="username" placeholder="Enter username" required>
+      <label>Password</label>
+      <input id="password" type="password" autocomplete="current-password" placeholder="Enter password" required>
+      <button class="primary" type="submit">Unlock your birthday ♡</button>
+      <div class="login-error" id="loginError"></div>
+    </form>
+  </div>
+</div>
 
-    <section id="surprise" class="surprise hidden">
-      <div class="cake">🎂</div>
-      <h2>Today is your day.</h2>
-      <p>
-        I hope this new chapter brings you countless reasons to smile,
-        beautiful memories, and everything your heart is wishing for.
-      </p>
+<div id="siteContent">
+<section class="cake page" id="cakePage">
+  <div class="cake-card">
+    <div class="script">happy birthday, Dheposh</div>
+    <h2 id="cakeTitle">Make a wish.</h2>
+    <p id="cakeInstruction">Click the candles to blow them out ✨</p>
 
-      <div class="cards">
-        <div class="card">🌸<br><strong>Beautiful moments</strong></div>
-        <div class="card">✨<br><strong>New adventures</strong></div>
-        <div class="card">💛<br><strong>Lots of happiness</strong></div>
-      </div>
+    <div class="cake-scene" id="cakeScene">
+      <div class="flame f1" data-candle="1"></div>
+      <div class="flame f2" data-candle="2"></div>
+      <div class="flame f3" data-candle="3"></div>
+      <div class="candle c1" data-candle="1"></div>
+      <div class="candle c2" data-candle="2"></div>
+      <div class="candle c3" data-candle="3"></div>
+      <div class="icing">♡</div>
+      <div class="cake-top"></div>
+      <div class="cake-body"></div>
+      <div class="plate"></div>
+      <div class="knife" id="knife">🔪</div>
+    </div>
 
-      <button id="finalBtn" class="secondary">One More Thing... 💌</button>
+    <button class="primary" id="cakeAction">Blow out the candles ✨</button>
+    <div class="wish-result" id="wishResult">
+      <strong>Now cut the cake! 🎂</strong>
+      <p>Click the cake to make the first cut.</p>
+    </div>
+  </div>
+</section>
 
-      <div id="finalMessage" class="final hidden">
-        <div class="heart">❤️</div>
-        <h3>You are special.</h3>
-        <p>And this is only the beginning of your birthday surprise.</p>
-      </div>
-    </section>
-  </main>
+<section class="intro page" id="memories">
+  <div class="section-copy">
+    <div class="script">the dheposh archive</div>
+    <h2>A few of my<br>favourite views of you.</h2>
+    <p>No perfect poses. No complicated explanation. Just you, being you.</p>
+  </div>
 
-  <script src="script.js"></script>
-</body>
+  <div class="floating-gallery">
+    <figure class="photo p1"><img src="images/memory-01.jpg" alt="Dheposh outdoors"><span>🌿</span></figure>
+    <figure class="photo p2"><img src="images/memory-02.jpg" alt="Dheposh"><span>✨</span></figure>
+    <figure class="photo p3"><img src="images/memory-03.jpg" alt="Dheposh smiling"><span>♡</span></figure>
+    <figure class="photo p4"><img src="images/memory-04.jpg" alt="Dheposh"><span>☕</span></figure>
+    <figure class="photo p5"><img src="images/memory-05.jpg" alt="Dheposh"><span>🌙</span></figure>
+    <figure class="photo p6"><img src="images/memory-06.jpg" alt="Dheposh"><span>🌸</span></figure>
+    <figure class="photo p7"><img src="images/memory-07.jpg" alt="Dheposh"><span>💫</span></figure>
+    <figure class="photo p8"><img src="images/memory-08.jpg" alt="Dheposh"><span>🍃</span></figure>
+    <figure class="photo p9"><img src="images/memory-09.jpg" alt="Dheposh"><span>🎀</span></figure>
+  </div>
+  <div class="tap-note">tap any photo ↗</div>
+</section>
+
+<section class="final page" id="final">
+  <div class="envelope-wrap">
+    <div class="script">one last thing</div>
+    <h2>For you, Dheposh.</h2>
+    <p class="sub">Tap the envelope.</p>
+
+    <button class="envelope" id="envelopeBtn" aria-label="Open the birthday message">
+      <span class="seal">♡</span>
+      <span class="env-flap"></span>
+      <span class="env-paper">
+        <strong>Happy Birthday</strong>
+        <small>to my favourite Dheposh</small>
+      </span>
+    </button>
+
+    <div class="letter" id="letter">
+      <div class="script">dear Dheposh,</div>
+      <p>Keep fighting and shining like you always do.</p>
+      <p>I will appreciate you and always be a part of you, even if I am not around you. You know that.</p>
+      <p>It's your birthday, and God gave the world a precious soul.</p>
+      <p class="signature">— Happy Birthday, Dheposh ❤️</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div>Made with memories, music & a suspicious amount of code.</div>
+  <button id="replay">↻ Replay from the beginning</button>
+</footer>
+</div>
+
+<div class="lightbox" id="lightbox">
+  <button class="close" id="closeLightbox">×</button>
+  <img id="lightboxImg" src="" alt="">
+  <div id="lightboxCaption"></div>
+</div></body>
 </html>
