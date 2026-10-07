@@ -7,14 +7,14 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@500;600;700&family=Sacramento&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=5">
+<link rel="stylesheet" href="style.css?v=6">
 </head>
 <body class="locked">
 <audio id="song" preload="auto" loop><source src="music/birthday-song.mp3" type="audio/mpeg"></audio>
 <button class="music-toggle" id="musicToggle" type="button">♫ <span>Music</span></button>
 <div class="petals" id="petals"></div>
 
-<div class="login-screen" id="loginScreen"><div class="duck-layer" id="duckLayer" aria-hidden="true"></div>
+<div class="login-screen" id="loginScreen"><div class="duck-layer" id="duckLayer" aria-hidden="true"></div><div class="login-sun" aria-hidden="true"></div>
   <div class="login-card">
     <div class="login-flower">✿</div>
     <div class="mini">A LITTLE SURPRISE FOR YOU</div>
@@ -40,7 +40,7 @@
     <h2 id="cakeTitle">Make a wish.</h2>
     <p id="cakeInstruction">Click each candle to blow it out ✨</p>
     <div class="cake-scene" id="cakeScene" aria-label="Birthday cake">
-      <div class="sparkle-ring">✦　✿　✦　✿　✦</div>
+      <div class="sparkle-ring">✦　✿　✦　✿　✦</div><div class="cake-lights" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
       <div class="flame f1" data-candle="1"></div><div class="flame f2" data-candle="2"></div><div class="flame f3" data-candle="3"></div>
       <div class="candle c1" data-candle="1"></div><div class="candle c2" data-candle="2"></div><div class="candle c3" data-candle="3"></div>
       <div class="icing-drip d1"></div><div class="icing-drip d2"></div><div class="icing-drip d3"></div>
@@ -101,5 +101,5 @@
 <footer><div>Made with memories, music & a suspicious amount of code.</div><button id="replay" type="button">↻ Replay from the beginning</button></footer>
 </main>
 <div class="lightbox" id="lightbox"><button class="close" id="closeLightbox" type="button">×</button><img id="lightboxImg" src="" alt=""><div id="lightboxCaption"></div></div>
-<script src="script.js?v=5"></script>
+<script src="script.js?v=6"></script>
 </body></html>

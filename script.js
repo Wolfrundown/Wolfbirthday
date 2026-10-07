@@ -9,17 +9,20 @@ const pages=['cakePage','memory1','memory2','memory3','memory4','memory5','memor
 function createLoginDucks(){
   if(!duckLayer || duckLayer.children.length) return;
   const positions=[
-    [4,10,0], [17,23,1], [31,8,2], [48,18,3], [66,7,4], [83,20,5],
-    [8,76,6], [24,88,7], [43,72,8], [61,90,9], [79,74,10], [93,88,11],
-    [3,48,12], [94,48,13], [13,55,14], [87,57,15]
+    [2,7,0.15,-8],[18,20,0.10,6],[34,5,0.14,-4],[51,16,0.12,7],[69,6,0.16,-6],[87,18,0.11,5],
+    [5,72,0.12,5],[21,87,0.15,-7],[43,74,0.11,4],[62,88,0.16,-5],[80,72,0.13,6],[93,88,0.10,-4],
+    [3,44,0.09,3],[91,45,0.13,-5],[14,55,0.08,7],[84,57,0.09,-6]
   ];
-  positions.forEach(([x,y,i])=>{
-    const d=document.createElement('div');
-    d.className='login-duck';
+  positions.forEach(([x,y,scale,rot],i)=>{
+    const d=document.createElement('img');
+    d.className='login-duck-image';
+    d.src='images/duck-reference.png';
+    d.alt='';
     d.style.left=x+'%'; d.style.top=y+'%';
-    d.style.setProperty('--dur',(4.2+(i%5)*.45)+'s');
-    d.style.setProperty('--delay',(-i*.42)+'s');
-    d.innerHTML='<span class="duck-body"></span><span class="duck-head"></span><span class="duck-eye"></span><span class="duck-beak"></span><span class="duck-wing"></span><span class="duck-feet"></span><span class="duck-flower">✿</span>';
+    d.style.setProperty('--duck-scale',scale);
+    d.style.setProperty('--duck-rot',rot+'deg');
+    d.style.setProperty('--dur',(4.8+(i%5)*.5)+'s');
+    d.style.setProperty('--delay',(-i*.37)+'s');
     duckLayer.appendChild(d);
   });
 }
@@ -33,9 +36,52 @@ musicToggle.addEventListener('click',()=>song.paused?playMusic():stopMusic());
 function blowCandle(n){if(cakeCut||n>3)return;const candle=document.querySelector(`.candle[data-candle="${n}"]`),flame=document.querySelector(`.flame[data-candle="${n}"]`);if(!candle||candle.classList.contains('blown-candle'))return;flame.classList.add('blown');candle.classList.add('blown-candle');candlesOut++;popSparks(flame);if(candlesOut<3){cakeInstruction.textContent=`Beautiful. ${3-candlesOut} candle${3-candlesOut>1?'s':''} left. ✨`;}else{cakeTitle.textContent='Wish made. ✿';cakeInstruction.textContent='Now click the cake to cut it!';cakeAction.classList.add('hidden');cakeScene.classList.add('cut-ready');wishResult.classList.add('show');}}
 document.querySelectorAll('.candle,.flame').forEach(el=>el.addEventListener('click',e=>{e.stopPropagation();blowCandle(Number(el.dataset.candle));}));
 cakeAction.addEventListener('click',()=>{if(candlesOut<3)blowCandle(candlesOut+1);});
-cakeScene.addEventListener('click',()=>{if(candlesOut===3&&!cakeCut){cakeCut=true;cakeScene.classList.add('cake-cut');cakeScene.classList.remove('cut-ready');cakeTitle.textContent='Cake cut! 🎂';cakeInstruction.textContent='A little celebration before the memories…';wishResult.classList.add('show');wishResult.innerHTML='<strong>Party time! 🎊</strong><p>Now press the button when you are ready.</p>';burstParty();cakeNext.classList.remove('hidden');cakeNext.classList.add('show-next');}});
+cakeScene.addEventListener('click',()=>{if(candlesOut===3&&!cakeCut){cakeCut=true;cakeScene.classList.add('cake-cut');cakeScene.classList.remove('cut-ready');cakeTitle.textContent='Cake cut! 🎂';cakeInstruction.textContent='A little celebration before the memories…';wishResult.classList.add('show');wishResult.innerHTML='<strong>Party time! 🎊</strong><p>Now press the button when you are ready.</p>';playCannonCelebration();burstParty();cakeNext.classList.remove('hidden');cakeNext.classList.add('show-next');}});
 cakeNext.addEventListener('click',()=>showPage('memory1'));
 $('nextMemory1').addEventListener('click',()=>showPage('memory2'));$('nextMemory2').addEventListener('click',()=>showPage('memory3'));$('nextMemory3').addEventListener('click',()=>showPage('memory4'));$('nextMemory4').addEventListener('click',()=>showPage('memory5'));$('nextMemory5').addEventListener('click',()=>showPage('memory6'));$('nextFinal').addEventListener('click',()=>showPage('final'));
+function playCannonCelebration(){
+  // The cake click is a user gesture, so a short Web Audio celebration can play without an external sound file.
+  try{
+    const Ctx=window.AudioContext||window.webkitAudioContext;
+    if(!Ctx)return;
+    const ctx=new Ctx();
+    const now=ctx.currentTime;
+    [0.04,0.22].forEach((delay,index)=>{
+      const t=now+delay;
+      const osc=ctx.createOscillator(), gain=ctx.createGain(), filter=ctx.createBiquadFilter();
+      osc.type='sine'; osc.frequency.setValueAtTime(170+index*35,t); osc.frequency.exponentialRampToValueAtTime(55,t+0.18);
+      filter.type='lowpass'; filter.frequency.value=1800;
+      gain.gain.setValueAtTime(0.0001,t); gain.gain.exponentialRampToValueAtTime(0.55,t+0.008); gain.gain.exponentialRampToValueAtTime(0.0001,t+0.22);
+      osc.connect(filter); filter.connect(gain); gain.connect(ctx.destination); osc.start(t); osc.stop(t+0.24);
+      const buffer=ctx.createBuffer(1,ctx.sampleRate*0.16,ctx.sampleRate), data=buffer.getChannelData(0);
+      for(let i=0;i<data.length;i++) data[i]=(Math.random()*2-1)*Math.pow(1-i/data.length,2);
+      const src=ctx.createBufferSource(), ng=ctx.createGain(), hp=ctx.createBiquadFilter();
+      src.buffer=buffer; hp.type='highpass'; hp.frequency.value=900; ng.gain.setValueAtTime(0.0001,t); ng.gain.exponentialRampToValueAtTime(0.28,t+0.004); ng.gain.exponentialRampToValueAtTime(0.0001,t+0.15);
+      src.connect(hp); hp.connect(ng); ng.connect(ctx.destination); src.start(t);
+    });
+    setTimeout(()=>ctx.close(),900);
+  }catch(e){}
+  launchSidePopper('left',0);
+  launchSidePopper('right',140);
+}
+function launchSidePopper(side,delay){
+  setTimeout(()=>{
+    const cannon=document.createElement('div'); cannon.className='popper-cannon '+side; cannon.innerHTML='<span class="popper-mouth"></span><b>POP!</b>'; document.body.appendChild(cannon);
+    requestAnimationFrame(()=>cannon.classList.add('fire'));
+    const symbols=['✿','✦','❀','•','✧','🌼'];
+    for(let i=0;i<26;i++){
+      const bit=document.createElement('span'); bit.className='party-bit '+side; bit.textContent=symbols[Math.floor(Math.random()*symbols.length)];
+      const spread=side==='left'? (Math.random()*42-4) : (Math.random()*42+62);
+      bit.style.left=spread+'vw'; bit.style.top=(48+Math.random()*9)+'vh';
+      bit.style.setProperty('--dx',(side==='left'?(90+Math.random()*42):(-90-Math.random()*42))+'px');
+      bit.style.setProperty('--dy',(-40-Math.random()*190)+'px');
+      bit.style.setProperty('--rot',(Math.random()*720-360)+'deg'); bit.style.animationDelay=(Math.random()*.16)+'s';
+      document.body.appendChild(bit); setTimeout(()=>bit.remove(),2300);
+    }
+    setTimeout(()=>cannon.remove(),1100);
+  },delay);
+}
+
 function openPhoto(photo){const img=photo.querySelector('img');lightboxImg.src=img.src;lightboxCaption.textContent='✿ Dheposh · exact photo · tap × to close';lightbox.classList.add('show');}document.querySelectorAll('.photo').forEach(photo=>photo.addEventListener('click',()=>openPhoto(photo)));function closeBox(){lightbox.classList.remove('show');setTimeout(()=>lightboxImg.src='',250);}closeLightbox.addEventListener('click',closeBox);lightbox.addEventListener('click',e=>{if(e.target===lightbox)closeBox();});
 envelopeBtn.addEventListener('click',()=>{letter.classList.add('open');envelopeBtn.classList.add('opened');stopMusic();popSparks(envelopeBtn);});
 function popSparks(origin){const r=origin.getBoundingClientRect();for(let i=0;i<14;i++){const s=document.createElement('div');s.className='spark';s.textContent=['✦','✧','✿','•','✨'][Math.floor(Math.random()*5)];s.style.position='fixed';s.style.zIndex='150';s.style.left=(r.left+r.width/2)+'px';s.style.top=(r.top+r.height/2)+'px';s.style.setProperty('--dx',(Math.random()*240-120)+'px');s.style.setProperty('--dy',(Math.random()*220-110)+'px');s.style.animation='sparkOut 1.5s ease forwards';document.body.appendChild(s);setTimeout(()=>s.remove(),1600);}}
