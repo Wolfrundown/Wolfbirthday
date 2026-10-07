@@ -3,45 +3,48 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Happy Birthday, Dheposh ♡</title>
+<title>Happy Birthday, Dheposh ✿</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@500;600;700&family=Sacramento&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=3">
+<link rel="stylesheet" href="style.css?v=5">
 </head>
 <body class="locked">
 <audio id="song" preload="auto" loop><source src="music/birthday-song.mp3" type="audio/mpeg"></audio>
 <button class="music-toggle" id="musicToggle" type="button">♫ <span>Music</span></button>
 <div class="petals" id="petals"></div>
 
-<div class="login-screen" id="loginScreen">
+<div class="login-screen" id="loginScreen"><div class="duck-layer" id="duckLayer" aria-hidden="true"></div>
   <div class="login-card">
     <div class="login-flower">✿</div>
     <div class="mini">A LITTLE SURPRISE FOR YOU</div>
-    <h1>For <em>Dheposh</em> ♡</h1>
+    <h1>For <em>Dheposh</em> <span class="lily-mark">✿</span></h1>
     <p>Only the birthday girl gets to open this.</p>
     <form id="loginForm">
       <label for="username">Username</label>
       <input id="username" type="text" autocomplete="username" placeholder="Enter username" required>
       <label for="password">Password</label>
       <input id="password" type="password" autocomplete="current-password" placeholder="Enter password" required>
-      <button class="primary" type="submit">Unlock your birthday ♡</button>
+      <button class="primary" type="submit">Unlock your birthday ✿</button>
       <div class="login-error" id="loginError"></div>
     </form>
   </div>
 </div>
 
 <main id="siteContent">
-<section class="cake page" id="cakePage">
+<!-- PAGE 1: CAKE -->
+<section class="cake page active" id="cakePage">
   <div class="glow-orb orb-a"></div><div class="glow-orb orb-b"></div>
   <div class="cake-card reveal-card">
     <div class="script">happy birthday, Dheposh</div>
     <h2 id="cakeTitle">Make a wish.</h2>
     <p id="cakeInstruction">Click each candle to blow it out ✨</p>
     <div class="cake-scene" id="cakeScene" aria-label="Birthday cake">
+      <div class="sparkle-ring">✦　✿　✦　✿　✦</div>
       <div class="flame f1" data-candle="1"></div><div class="flame f2" data-candle="2"></div><div class="flame f3" data-candle="3"></div>
       <div class="candle c1" data-candle="1"></div><div class="candle c2" data-candle="2"></div><div class="candle c3" data-candle="3"></div>
-      <div class="icing">♡</div><div class="cake-top"></div><div class="cake-body"></div><div class="plate"></div>
+      <div class="icing-drip d1"></div><div class="icing-drip d2"></div><div class="icing-drip d3"></div>
+      <div class="icing">✿</div><div class="cake-top"></div><div class="cake-body"><i class="berry b1">✿</i><i class="berry b2">✿</i><i class="berry b3">✿</i></div><div class="cake-base"></div><div class="plate"></div>
       <div class="knife" id="knife">🔪</div>
     </div>
     <button class="primary pulse-button" id="cakeAction" type="button">Blow out the candles ✨</button>
@@ -50,78 +53,53 @@
   </div>
 </section>
 
+<!-- PAGE 2: SINGLE PHOTO -->
 <section class="memory-page page" id="memory1">
-  <div class="page-number">01 / 03</div>
-  <div class="memory-copy">
-    <div class="script">first little memory</div>
-    <h2>A beautiful view.</h2>
-    <p>Some pictures don't need a caption. ♡</p>
-  </div>
-  <div class="single-photo-frame photo-enter">
-    <div class="tape tape-left"></div><div class="tape tape-right"></div>
-    <figure class="photo single-photo"><img src="images/memory-01.jpg" alt="Dheposh memory 1"><span>♡</span></figure>
-  </div>
+  <div class="page-number">MEMORY 01</div>
+  <div class="memory-copy"><div class="script">first little memory</div><h2>A beautiful view.</h2><p>Some pictures don't need a caption. ✿</p></div>
+  <div class="single-photo-frame"><div class="tape tape-left"></div><div class="tape tape-right"></div><figure class="photo single-photo"><img src="images/memory-01.jpg" alt="Dheposh memory 1"><span class="lily-deco">✿</span></figure></div>
   <button class="next-button" id="nextMemory1" type="button">Next memory <span>→</span></button>
 </section>
 
+<!-- PAGE 3: SINGLE PHOTO -->
 <section class="memory-page page" id="memory2">
-  <div class="page-number">02 / 03</div>
-  <div class="memory-copy">
-    <div class="script">one more</div>
-    <h2>And another one.</h2>
-    <p>Because one picture was definitely not enough. ✨</p>
-  </div>
-  <div class="single-photo-frame photo-enter alternate">
-    <div class="tape tape-left"></div><div class="tape tape-right"></div>
-    <figure class="photo single-photo"><img src="images/memory-02.jpg" alt="Dheposh memory 2"><span>🌸</span></figure>
-  </div>
-  <button class="next-button" id="nextMemory2" type="button">See them together <span>→</span></button>
+  <div class="page-number">MEMORY 02</div>
+  <div class="memory-copy"><div class="script">one more</div><h2>And another one.</h2><p>Because one picture was definitely not enough. ✿</p></div>
+  <div class="single-photo-frame alternate"><div class="tape tape-left"></div><div class="tape tape-right"></div><figure class="photo single-photo"><img src="images/memory-02.jpg" alt="Dheposh memory 2"><span>🌸</span></figure></div>
+  <button class="next-button" id="nextMemory2" type="button">See more memories <span>→</span></button>
 </section>
 
-<section class="memory-page double-page page" id="memory3">
-  <div class="page-number">03 / 03</div>
-  <div class="memory-copy">
-    <div class="script">the little archive</div>
-    <h2>The rest of the memories.</h2>
-    <p>Ten little moments, together on one page. Tap any photo to make it bigger. ♡</p>
-  </div>
-  <div class="double-gallery">
-    <figure class="photo"><img src="images/memory-03.jpg" alt="Dheposh memory 3"><span>✦</span></figure>
-    <figure class="photo"><img src="images/memory-04.jpg" alt="Dheposh memory 4"><span>♡</span></figure>
-    <figure class="photo"><img src="images/memory-05.jpg" alt="Dheposh memory 5"><span>🌙</span></figure>
-    <figure class="photo"><img src="images/memory-06.jpg" alt="Dheposh memory 6"><span>🌸</span></figure>
-    <figure class="photo"><img src="images/memory-07.jpg" alt="Dheposh memory 7"><span>✨</span></figure>
-    <figure class="photo"><img src="images/memory-08.jpg" alt="Dheposh memory 8"><span>🍃</span></figure>
-    <figure class="photo"><img src="images/memory-09.jpg" alt="Dheposh memory 9"><span>🎀</span></figure>
-    <figure class="photo"><img src="images/memory-10.jpg" alt="Dheposh memory 10"><span>♡</span></figure>
-    <figure class="photo"><img src="images/memory-11.jpg" alt="Dheposh memory 11"><span>🌷</span></figure>
-    <figure class="photo"><img src="images/memory-12.jpg" alt="Dheposh memory 12"><span>💫</span></figure>
-  </div>
+<!-- PAGES 4-7: THREE FLOATING PHOTOS EACH -->
+<section class="memory-page gallery-page page" id="memory3">
+  <div class="page-number">MEMORY 03</div><div class="memory-copy"><div class="script">little moments</div><h2>Three little memories.</h2><p>They look even better together. ✿</p></div>
+  <div class="floating-trio"><figure class="photo float-a"><img src="images/memory-03.jpg"><span>✦</span></figure><figure class="photo float-b"><img src="images/memory-04.jpg"><span class="lily-deco">✿</span></figure><figure class="photo float-c"><img src="images/memory-05.jpg"><span>🌸</span></figure></div>
+  <button class="next-button" id="nextMemory3" type="button">Next page <span>→</span></button>
+</section>
+<section class="memory-page gallery-page page" id="memory4">
+  <div class="page-number">MEMORY 04</div><div class="memory-copy"><div class="script">more moments</div><h2>A little more of you.</h2><p>Three more, just because. ✨</p></div>
+  <div class="floating-trio"><figure class="photo float-a"><img src="images/memory-06.jpg"><span class="lily-deco">✿</span></figure><figure class="photo float-b"><img src="images/memory-07.jpg"><span>🌙</span></figure><figure class="photo float-c"><img src="images/memory-08.jpg"><span>✦</span></figure></div>
+  <button class="next-button" id="nextMemory4" type="button">Keep going <span>→</span></button>
+</section>
+<section class="memory-page gallery-page page" id="memory5">
+  <div class="page-number">MEMORY 05</div><div class="memory-copy"><div class="script">the archive grows</div><h2>Three more favorites.</h2><p>Save this little moment forever. ✿</p></div>
+  <div class="floating-trio"><figure class="photo float-a"><img src="images/memory-09.jpg"><span>🎀</span></figure><figure class="photo float-b"><img src="images/memory-10.jpg"><span class="lily-deco">✿</span></figure><figure class="photo float-c"><img src="images/memory-11.jpg"><span>🌷</span></figure></div>
+  <button class="next-button" id="nextMemory5" type="button">One last memory <span>→</span></button>
+</section>
+<section class="memory-page gallery-page page" id="memory6">
+  <div class="page-number">MEMORY 06</div><div class="memory-copy"><div class="script">and one more</div><h2>One last little picture.</h2><p>Some memories deserve their own moment. ✿</p></div>
+  <div class="floating-trio last-one"><figure class="photo float-a"><img src="images/memory-12.jpg"><span>💫</span></figure></div>
   <button class="next-button" id="nextFinal" type="button">One last thing <span>→</span></button>
 </section>
 
+<!-- FINAL PAGE -->
 <section class="final page" id="final">
-  <div class="envelope-wrap reveal-card">
-    <div class="script">one last thing</div>
-    <h2>For you, Dheposh.</h2>
-    <p class="sub">Tap the envelope.</p>
-    <button class="envelope" id="envelopeBtn" aria-label="Open the birthday message" type="button">
-      <span class="seal">♡</span><span class="env-flap"></span>
-      <span class="env-paper"><strong>Happy Birthday</strong><small>to my favourite Dheposh</small></span>
-    </button>
-    <div class="letter" id="letter">
-      <div class="script">dear Dheposh,</div>
-      <p>Keep fighting and shining like you always do.</p>
-      <p>I will appreciate you and always be a part of you, even if I am not around you. You know that.</p>
-      <p>It's your birthday, and God gave the world a precious soul.</p>
-      <p class="signature">— Happy Birthday, Dheposh ❤️</p>
-    </div>
+  <div class="envelope-wrap reveal-card"><div class="script">one last thing</div><h2>For you, Dheposh.</h2><p class="sub">Tap the envelope.</p>
+    <button class="envelope" id="envelopeBtn" aria-label="Open the birthday message" type="button"><span class="seal">✿</span><span class="env-flap"></span><span class="env-paper"><strong>Happy Birthday</strong><small>to my favourite Dheposh</small></span></button>
+    <div class="letter" id="letter"><div class="script">dear Dheposh,</div><p>Keep fighting and shining like you always do.</p><p>I will appreciate you and always be a part of you, even if I am not around you. You know that.</p><p>It's your birthday, and God gave the world a precious soul.</p><p class="signature">— Happy Birthday, Dheposh ✿</p></div>
   </div>
 </section>
 <footer><div>Made with memories, music & a suspicious amount of code.</div><button id="replay" type="button">↻ Replay from the beginning</button></footer>
 </main>
-
 <div class="lightbox" id="lightbox"><button class="close" id="closeLightbox" type="button">×</button><img id="lightboxImg" src="" alt=""><div id="lightboxCaption"></div></div>
-<script src="script.js?v=3"></script>
-</body>
-</html>
+<script src="script.js?v=5"></script>
+</body></html>
