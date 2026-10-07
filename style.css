@@ -92,3 +92,29 @@
 @keyframes stitchBounce{0%,100%{transform:translateY(0) rotate(-2deg) scale(1)}25%{transform:translateY(-12px) rotate(2deg) scale(1.02)}50%{transform:translateY(0) rotate(-1deg) scale(1)}75%{transform:translateY(-7px) rotate(-3deg) scale(1.01)}}
 @keyframes angelFloat{0%,100%{transform:translateY(0) rotate(2deg)}30%{transform:translateY(-13px) rotate(-2deg)}65%{transform:translateY(-5px) rotate(3deg)}}
 @media(max-width:700px){.stitch-character{width:105px;left:8px;bottom:30px;opacity:.9}.angel-character{width:95px;right:8px;bottom:28px;opacity:.82}.cake-card{z-index:10}.pause-card{z-index:10}}
+
+
+/* V9 — final note can scroll internally; navigation still requires the button. */
+.final{
+  justify-content:flex-start;
+  overflow-y:auto;
+  overflow-x:hidden;
+  overscroll-behavior:contain;
+  -webkit-overflow-scrolling:touch;
+  scrollbar-gutter:stable;
+  padding-top:clamp(28px,5vh,55px);
+  padding-bottom:clamp(55px,9vh,95px);
+}
+.final .envelope-wrap{
+  flex:none;
+  margin:0 auto 8vh;
+}
+.final .letter.open{
+  max-height:1200px;
+  overflow:visible;
+}
+@media(max-width:700px){
+  .final{padding:28px 14px 70px;align-items:center;}
+  .final .envelope-wrap{margin-bottom:8vh;}
+  .final .letter.open{max-height:1400px;}
+}

@@ -1,5 +1,5 @@
 const $=id=>document.getElementById(id);
-const song=$('song'),musicToggle=$('musicToggle'),loginForm=$('loginForm'),loginScreen=$('loginScreen'),loginError=$('loginError'),duckLayer=$('duckLayer');
+const song=$('song'),popperSound=$('popperSound'),musicToggle=$('musicToggle'),loginForm=$('loginForm'),loginScreen=$('loginScreen'),loginError=$('loginError'),duckLayer=$('duckLayer');
 const cakeAction=$('cakeAction'),cakeScene=$('cakeScene'),cakeTitle=$('cakeTitle'),cakeInstruction=$('cakeInstruction'),wishResult=$('wishResult'),cakeNext=$('cakeNext');
 const envelopeBtn=$('envelopeBtn'),letter=$('letter'),replay=$('replay');
 const lightbox=$('lightbox'),lightboxImg=$('lightboxImg'),lightboxCaption=$('lightboxCaption'),closeLightbox=$('closeLightbox');
@@ -40,7 +40,14 @@ cakeScene.addEventListener('click',()=>{if(candlesOut===3&&!cakeCut){cakeCut=tru
 cakeNext.addEventListener('click',()=>showPage('memory1'));
 $('nextMemory1').addEventListener('click',()=>showPage('memory2'));$('nextMemory2').addEventListener('click',()=>showPage('memory3'));$('nextMemory3').addEventListener('click',()=>showPage('memory4'));$('nextMemory4').addEventListener('click',()=>showPage('memory5'));$('nextMemory5').addEventListener('click',()=>showPage('memory6'));$('nextFinal').addEventListener('click',()=>showPage('pausePage'));$('nextPause').addEventListener('click',()=>showPage('final'));
 function playCannonCelebration(){
-  // The cake click is a user gesture, so a short Web Audio celebration can play without an external sound file.
+  // Use the birthday popper sound supplied for this site. The cake click is a user gesture, so playback is allowed.
+  try{
+    if(popperSound){
+      popperSound.currentTime=0;
+      popperSound.volume=0.9;
+      popperSound.play().catch(()=>{});
+    }
+  }catch(e){}
   try{
     const Ctx=window.AudioContext||window.webkitAudioContext;
     if(!Ctx)return;
